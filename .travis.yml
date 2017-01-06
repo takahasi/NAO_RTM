@@ -16,10 +16,9 @@ before_install:
   - sudo apt-get install -y --force-yes openrtm-aist
   - sudo apt-get install -y --force-yes openrtm-aist-dev
   - sudo apt-get install -y --force-yes openrtm-aist-example
-  - sudo apt-get install -y --force-yes python2.7
+  - sudo apt-get install -y --force-yes python2.7 libpython2.7
   - sudo apt-get install -y --force-yes openrtm-aist-python
   - sudo apt-get install -y --force-yes openrtm-aist-python-example
-  - sudo apt-get install -y --force-yes python-omniorb
   - export PYTHONPATH=${PYTHONPATH}:/home/takahasi/work/nao/pynaoqi-python2.7-2.1.4.13-linux64
 script:
   - ./setup.sh
