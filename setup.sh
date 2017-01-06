@@ -57,12 +57,26 @@ function install_pil() {
 function install_nao_rtc() {
   git clone https://github.com/ogata-lab/NAO_python
   (cd NAO_python && chmod a+x idlcompile.sh && ./idlcompile.sh)
-  cp NAO_python/rtc.conf .
+
+  # Creates NAO_python.conf
   cp NAO_python/NAO_python.conf .
   # ip address : 169.254.252.60
   sed -i -e 's/conf.default.ipaddress: localhost/conf.default.apaddress: 169.254.252.60/g' NAO_python.conf
   # port : 9559
   sed -i -e 's/conf.default.port:63812/conf.default.port: 9559/g' NAO_python.conf
+
+  # Creates rtc.conf
+  readonly RTCLOG=rtc.NAO_python.log
+  readonly RTCCONF=rtc.conf
+  cat << EOS > $RTCCONF
+corba.nameservers: localhost
+naming.formats: %n.rtc
+logger.enable: YES
+logger.log_level: VERBOSE
+logger.file_name: $RTCLOG
+Humanoid.NAO_python.config_file: NAO_python.conf
+EOS
+
   return 0
 }
 

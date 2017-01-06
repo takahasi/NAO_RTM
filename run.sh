@@ -23,11 +23,10 @@ set -ue
 rtm-naming
 
 # start components
-./CameraViewer/build/src/CameraViewerComp &> /dev/null &
-python NAO/NAO_python.py &> /dev/null &
-python FloatSeqToVelocity/FloatSeqToVelocity.py &> /dev/null &
-python TkJoyStick/TkJoyStickComp.py  &> /dev/null &
-./CameraViewer/build/src/CameraViewerComp &> /dev/null &
+python NAO_python/NAO_python.py &> /dev/null &
+(cd FloatSeqToVelocity && python FloatSeqToVelocity.py &> /dev/null) &
+(cd TkJoyStick && python TkJoyStickComp.py  &> /dev/null) &
+(cd CameraViewer/build/src && CameraViewerComp &> /dev/null) &
 
 # start openrtp
 openrtp &> /dev/null &
