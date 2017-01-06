@@ -22,6 +22,6 @@ before_install:
   - sudo apt-get install -y --force-yes openrtm-aist-python
   - sudo apt-get install -y --force-yes openrtm-aist-python-example
   - export PYTHONPATH=${PYTHONPATH}:/home/takahasi/work/nao/pynaoqi-python2.7-2.1.4.13-linux64
+  - export OpenCV_DIR=/usr/share/OpenCV
 script:
-  - find / -name "OpenCV*.cmake" 2> /dev/null
   - ./setup.sh
