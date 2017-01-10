@@ -10,6 +10,8 @@ set -ue
 # readonly XXX="xxx"
 readonly PYNAOQI_VERSION=python2.7-2.1.4.13-linux64
 readonly PIL_VERSION=1.1.7
+readonly NAO_PORT=9559
+readonly NAO_IPADDRESS=169.254.252.60
 
 ####################
 # GLOBAL VARIABLES #
@@ -60,10 +62,10 @@ function install_nao_rtc() {
 
   # Creates NAO_python.conf
   cp NAO_python/NAO_python.conf .
-  # ip address : 169.254.252.60
-  sed -i -e 's/conf.default.ipaddress: localhost/conf.default.apaddress: 169.254.252.60/g' NAO_python.conf
-  # port : 9559
-  sed -i -e 's/conf.default.port:63812/conf.default.port: 9559/g' NAO_python.conf
+  # ip address : NAO_IPADDRESS
+  sed -i -e "s/conf.default.ipaddress: localhost/conf.default.apaddress: ${NAO_IPADDRESS}/g" NAO_python.conf
+  # port : NAO_PORT
+  sed -i -e "s/conf.default.port:63812/conf.default.port: ${NAO_PORT}/g" NAO_python.conf
 
   # Creates rtc.conf
   readonly RTCLOG=rtc.NAO_python.log
