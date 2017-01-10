@@ -63,7 +63,7 @@ function install_nao_rtc() {
   # Creates NAO_python.conf
   cp NAO_python/NAO_python.conf .
   # ip address : NAO_IPADDRESS
-  sed -i -e "s/conf.default.ipaddress: localhost/conf.default.apaddress: ${NAO_IPADDRESS}/g" NAO_python.conf
+  sed -i -e "s/conf.default.ipaddress: localhost/conf.default.ipaddress: ${NAO_IPADDRESS}/g" NAO_python.conf
   # port : NAO_PORT
   sed -i -e "s/conf.default.port:63812/conf.default.port: ${NAO_PORT}/g" NAO_python.conf
 
