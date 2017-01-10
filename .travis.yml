@@ -24,5 +24,7 @@ before_install:
   - export PYTHONPATH=${PYTHONPATH}:/home/takahasi/work/nao/pynaoqi-python2.7-2.1.4.13-linux64
   - export OpenCV_DIR=/usr/share/OpenCV
   - export CMAKE_MODULE_PATH+=:/usr/share/OpenCV
+  - env
+  - find /usr | grep OpenCV
 script:
   - ./setup.sh
