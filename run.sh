@@ -20,7 +20,7 @@ set -ue
 ################
 
 # start naming service
-rtm-naming
+#rtm-naming
 
 # start components
 python NAO_python/NAO_python.py &> /dev/null &
@@ -29,6 +29,6 @@ python NAO_python/NAO_python.py &> /dev/null &
 (cd CameraViewer/build/src && CameraViewerComp &> /dev/null) &
 
 # start openrtp
-openrtp &> /dev/null &
+# openrtp &> /dev/null &
 
 exit 0
